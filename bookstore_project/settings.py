@@ -38,10 +38,15 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    # 3rd Party
+    'crispy_forms',
+
     # Local
     'users.apps.UsersConfig',
     'pages.apps.PagesConfig',
 ]
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4' # django-crispy-forms
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -126,6 +131,14 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static'),] # Local dev location
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles') # Production location
+STATICFILES_FINDERS = [
+    # Looks within STATICFILES_DIRS for any static files in project-level dir
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    # Looks for any directories named static located within an app
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+]
 
 
 # User Registration
