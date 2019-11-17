@@ -6,6 +6,7 @@ services:
     command: python /code/manage.py runserver 0.0.0.0:8000
     environment:
       - SECRET_KEY=-eylu+mc*e%*qz8d7p*vr1vs8u#j$$r399=4ejhgp*w!aq=9^l(
+      - SENDGRID_API_KEY=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
       - DEBUG=1
     volumes:
       - .:/code
