@@ -146,6 +146,11 @@ STATICFILES_FINDERS = [
 ]
 
 
+# Media files (user uploads)
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+
 # User Registration
 
 AUTH_USER_MODEL = 'users.CustomUser'
