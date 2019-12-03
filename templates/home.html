@@ -5,7 +5,10 @@
 
 {% block main %}
 <h1>Homepage</h1>
-<img src="{% static 'images/djangoforprofessionals.jpg' %}" alt="" class="bookcover">
+<form class="form-inline mt-2 mt-md-0" action="{% url 'search_results' %}" method="get">
+  <input type="text" name="q" value="" class="form-control mr-sm-2" placeholder="Search" aria-label="Search">
+</form>
+<!-- <img src="{% static 'images/djangoforprofessionals.jpg' %}" alt="" class="bookcover"> -->
 {% if user.is_authenticated %}
   <p>Hi {{ user.email }}!</p>
   <p><a href="{% url 'account_logout' %}">Log Out</a></p>
