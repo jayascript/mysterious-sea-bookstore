@@ -5,22 +5,15 @@ services:
     build: .
     command: python /code/manage.py runserver 0.0.0.0:8000
     environment:
-      - ENVIRONMENT=development
-      - DEBUG=1
+      - ENVIRONMENT=production
+      - DEBUG=0
       - SECRET_KEY=-eylu+mc*e%*qz8d7p*vr1vs8u#j$$r399=4ejhgp*w!aq=9^l(
       - SENDGRID_API_KEY=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
       - STRIPE_TEST_PUBLISHABLE_KEY=pk_test_WT6l2WUfKsxLZsJzAr9IviWV00UEQVSTKx
       - STRIPE_TEST_SECRET_KEY=sk_test_kyGyxaYEpTwFfQQHXGLZnppK00FWKpPKB6
-    volumes:
-      - .:/code
     ports:
       - 8000:8000
     depends_on:
       - db
   db:
     image: postgres:11
-    volumes:
-      - postgres_data:/var/lib/postgresql/data/
-
-volumes:
-  postgres_data:
